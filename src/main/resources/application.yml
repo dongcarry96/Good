@@ -1,0 +1,21 @@
+spring:
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  #    cache: false
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/dong?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: dong
+    password: dong
+
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database: mysql
+    hibernate:
+      ddl-auto: create
+  # Email
+
