@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 정보 수정</title>
+</head>
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+    <style>
+        .carousel-inner > .item {
+            height: 350px;
+        }
+        a:hover{
+            text-decoration:none;
+        }
+    </style>
+</th:block>
+<div layout:fragment="content">
+<body>
+<h1>회원 정보 수정</h1>
+<form action="#" th:action="@{/members/update}" th:object="${member}" method="post">
+    <div class="form-group">
+        <label for="phone">전화번호:</label>
+        <input type="text" class="form-control" id="phone" th:field="*{phone}">
+    </div>
+    <div class="form-group">
+        <label for="address">주소:</label>
+        <input type="text" class="form-control" id="address" th:field="*{address}">
+    </div>
+    <button type="submit">수정</button>
+</form>
+</body>
+</div>
+</html>
