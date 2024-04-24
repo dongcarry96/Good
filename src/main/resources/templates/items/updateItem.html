@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/layout}">
+<th:block layout:fragment="css">
+    <style>
+        .carousel-inner > .item {
+            height: 350px;
+        }
+        a:hover{
+            text-decoration:none;
+        }
+    </style>
+</th:block>
+<div layout:fragment="content">
+    <body>
+        <div class="container">
+            <form th:object="${form}" method="post">
+                <!-- id -->
+                <input type="hidden" th:field="*{id}" />
+                <div class="form-group">
+                    <label th:for="name">상품명</label>
+                    <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력하세요" />
+                </div>
+                <div class="form-group">
+                    <label th:for="price">가격</label>
+                    <input type="number" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요" />
+                </div>
+                <div class="form-group">
+                    <label th:for="stockQuantity">수량</label>
+                    <input type="number" th:field="*{stockQuantity}" class="form-control" placeholder="수량을 입력하세요" />
+                </div>
+                <button type="submit" class="btn btn-primary">수정</button>
+            </form>
+        </div>
+    </body>
+</div>
+</html>
