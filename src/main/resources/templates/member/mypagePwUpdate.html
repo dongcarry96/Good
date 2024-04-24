@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 정보 수정</title>
+</head>
+<th:block layout:fragment="css">
+    <style>
+        .carousel-inner > .item {
+            height: 350px;
+        }
+        a:hover{
+            text-decoration:none;
+        }
+    </style>
+</th:block>
+<div layout:fragment="content">
+<body>
+<h1>비밀번호 수정</h1>
+<form action="#" th:action="@{/members/updatePassword}" th:object="${passwordFormDto}" method="post">
+    <div class="form-group">
+        <label for="currentPassword">현재 비밀번호:</label>
+        <input type="password" class="form-control" id="currentPassword" th:field="*{currentPassword}">
+        <span th:if="${#fields.hasErrors('currentPassword')}" th:errors="*{currentPassword}"
+              class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="newPassword">새로운 비밀번호:</label>
+        <input type="password" class="form-control" id="newPassword" th:field="*{newPassword}">
+        <span th:if="${#fields.hasErrors('newPassword')}" th:errors="*{newPassword}" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="confirmPassword">비밀번호 확인:</label>
+        <input type="password" class="form-control" id="confirmPassword" th:field="*{confirmPassword}">
+        <span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"
+              class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">수정</button>
+    <a th:href="@{/members/mypage}" class="btn btn-secondary">Cancel</a>
+    <span th:if="${errorMessage}" class="text-danger" th:text="${errorMessage}"></span>
+</form>
+</form>
+</body>
+</div>
+</html>
