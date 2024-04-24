@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+</head>
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+    <style>
+        .carousel-inner > .item {
+            height: 350px;
+        }
+        a:hover{
+            text-decoration:none;
+        }
+    </style>
+</th:block>
+<div layout:fragment="content">
+<body>
+<h1>마이페이지</h1>
+<br>
+<div>
+    <p>이메일 : <span th:text="${member.email}">이메일</span></p>
+    <p>이름 : <span th:text="${member.name}">이름</span></p>
+    <p>전화번호 : <span th:text="${member.phone}">전화번호</span></p>
+    <p>주소 : <span th:text="${member.address}">주소</span></p>
+</div>
+
+<br>
+<div>
+<a th:href="@{/members/update}" style="margin-right: 20px">개인정보 수정</a>
+<a th:href="@{/members/updatePassword}">비밀번호 수정</a>
+</div>
+</body>
+</div>
+</html>
+</html>
